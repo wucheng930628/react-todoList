@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: dodgerblue;
+    color:azure;
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.wrapper {
+    width: 450px;
+    padding: 30px;
+    background-color: rgb(8, 48, 117);
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
