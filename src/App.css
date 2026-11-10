@@ -24,7 +24,7 @@ body {
 .create-form{
     height: 40px;
     width: 100%;
-    margin: 25px 8px;
+    margin: 25px 0 10px;
     border: 1px solid #3b36cc;
     display: flex;
 }
