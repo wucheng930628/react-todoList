@@ -59,3 +59,8 @@ body {
     align-items: center;
 
 }
+
+.completed {
+    opacity: 0.4;
+    text-decoration: line-through 3px black;
+}
