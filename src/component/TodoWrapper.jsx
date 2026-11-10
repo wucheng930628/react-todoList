@@ -4,11 +4,13 @@ import Todo from "./Todo";
 
 function TodoWrapper() {
   const [todos, setTodos] = useState(() => [
-    { content: "打掃廁所", id: Math.random(), isCompleted: false },
-    { content: "寫作業", id: Math.random(), isCompleted: false },
+    { content: "打掃廁所", id: Math.random(), 
+      isCompleted: false, isEditing: false},
+    { content: "寫作業", id: Math.random(), 
+      isCompleted: false, isEditing: false},
   ]);
 const addTodo = (content) =>{
-  setTodos([...todos, {content: content, id: Math.random(), isCompleted: false}])
+  setTodos([...todos, {content: content, id: Math.random(), isCompleted: false, isEditing: false}])
 }
 const deleteTodo = (id) =>{
   setTodos(todos.filter((todo)=>{
@@ -22,7 +24,20 @@ const toggleCompleted = (id) => {
     ? {...todo, isCompleted: !todo.isCompleted}
     : todo
   }))
-
+}
+const toggleIsEditing = (id) =>{
+  setTodos(todos.map((todo)=>{
+    return todo.id === id
+    ? {...todo, isEditing: !todo.isEditing}
+    : todo
+  }))
+}
+const updateTodo = (id, content) => {
+  setTodos(todos.map((todo) => {
+    return todo.id === id
+      ? { ...todo, content, isEditing: false }
+      : todo
+  }))
 }
 
   return (
@@ -31,6 +46,8 @@ const toggleCompleted = (id) => {
       <CreateForm addTodo={addTodo}/>
       {todos.map((todo) => {
         return <Todo toggleCompleted={toggleCompleted}
+        toggleIsEditing={toggleIsEditing}
+        updateTodo={updateTodo}
         todo={todo} key={todo.id} deleteTodo={deleteTodo}/>;
       })}
     </div>
